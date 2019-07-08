@@ -28,6 +28,7 @@
 		45184ADF22D3DB2100B93A26 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184ADE22D3DB2100B93A26 /* Thing.swift */; };
 		45184AE122D3E43D00B93A26 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AE022D3E43D00B93A26 /* Input.swift */; };
 		45184AE322D3F2A200B93A26 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AE222D3F2A200B93A26 /* Ray.swift */; };
+		45184AE522D3FBF200B93A26 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AE422D3FBF200B93A26 /* Rotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		45184ADE22D3DB2100B93A26 /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
 		45184AE022D3E43D00B93A26 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		45184AE222D3F2A200B93A26 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
+		45184AE422D3FBF200B93A26 /* Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				45184AE222D3F2A200B93A26 /* Ray.swift */,
 				45184ACD22D2A2B700B93A26 /* Rect.swift */,
 				45184AC522D299EB00B93A26 /* Renderer.swift */,
+				45184AE422D3FBF200B93A26 /* Rotation.swift */,
 				45184ADE22D3DB2100B93A26 /* Thing.swift */,
 				45184AD722D3A19000B93A26 /* Tile.swift */,
 				45184AD922D3A1C300B93A26 /* Tilemap.swift */,
@@ -284,6 +287,7 @@
 				45184AC622D299EB00B93A26 /* Renderer.swift in Sources */,
 				45184AC822D29CC900B93A26 /* Vector.swift in Sources */,
 				45184ACA22D29E7000B93A26 /* Player.swift in Sources */,
+				45184AE522D3FBF200B93A26 /* Rotation.swift in Sources */,
 				45184AE322D3F2A200B93A26 /* Ray.swift in Sources */,
 				45184ADA22D3A1C300B93A26 /* Tilemap.swift in Sources */,
 				45184ADF22D3DB2100B93A26 /* Thing.swift in Sources */,

@@ -16,45 +16,18 @@ public struct Renderer {
 
 public extension Renderer {
     mutating func draw(_ world: World) {
-        // Get relative scale between world units and pixels
-        let scale = Double(bitmap.height) / world.size.y
-        
-        // Draw map
-        for y in 0 ..< world.map.height {
-            for x in 0 ..< world.map.width where world.map[x,y].isWall {
-                let rect = Rect(
-                    min: Vector(x: Double(x), y: Double(y)) * scale,
-                    max: Vector(x: Double(x + 1), y: Double(y + 1)) * scale
-                )
-                bitmap.fill(rect: rect, color: .white)
-            }
-        }
-        
-        // Draw player
-        var rect = world.player.rect
-        rect.min *= scale
-        rect.max *= scale
-        bitmap.fill(rect: rect, color: .blue)
-        
-        // Draw player's line of sight
-        let ray = Ray(origin: world.player.position, direction: world.player.direction)
-        let end = world.map.hitTest(ray)
-        bitmap.drawLine(from: world.player.position * scale, to: end * scale, color: .green)
-        
-        // Draw player's view plane
+        // Calculate player's view plane
         let focalLength = 1.0
-        let viewWidth = 1.0
+        let viewWidth = Double(bitmap.width) / Double(bitmap.height)
         let viewPlane = world.player.direction.orthogonal * viewWidth
         let viewCenter = world.player.position + world.player.direction * focalLength
         let viewStart = viewCenter - viewPlane / 2
-        let viewEnd = viewStart + viewPlane
-        bitmap.drawLine(from: viewStart * scale, to: viewEnd * scale, color: .red)
         
-        // Draw player's line of sight as fan of rays
-        let columns = 10
+        // Calculate player's line of sight as fan of rays
+        let columns = bitmap.width
         let step = viewPlane / Double(columns)
         var columnPosition = viewStart
-        for _ in 0 ..< columns {
+        for x in 0 ..< columns {
             let rayDirection = columnPosition - world.player.position
             let viewPlaneDistance = rayDirection.length
             let ray = Ray(
@@ -62,7 +35,29 @@ public extension Renderer {
                 direction: rayDirection / viewPlaneDistance
             )
             let end = world.map.hitTest(ray)
-            bitmap.drawLine(from: ray.origin * scale, to: end * scale, color: .green)
+            
+            // Lighting (gray color for north/south walls)
+            let wallColor: Color
+            if end.x.rounded(.down) == end.x {
+                wallColor = .white
+            } else {
+                wallColor = .gray
+            }
+            
+            // Draw wall
+            let wallDistance = (end - ray.origin).length
+            let wallHeight = 1.0
+            
+            let distanceRatio = viewPlaneDistance / focalLength
+            let perpendicular = wallDistance / distanceRatio
+            let height = wallHeight * focalLength / perpendicular * Double(bitmap.height)
+            
+            bitmap.drawLine(
+                from: Vector(x: Double(x), y: (Double(bitmap.height) - height) / 2),
+                to: Vector(x: Double(x), y: (Double(bitmap.height) + height) / 2),
+                color: wallColor
+            )
+            
             columnPosition += step
         }
     }

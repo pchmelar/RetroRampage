@@ -77,7 +77,14 @@ class ViewController: UIViewController {
         // Equal to 1 FPS, maximum 20 FPS to prevent bugs
         let timeStep = min(maximumTimeStep, displayLink.timestamp - lastFrameTime)
         
-        let input = Input(velocity: inputVector)
+        // Handle input (Y axis for speed and X axis for rotation)
+        let rotation = inputVector.x * world.player.turningSpeed * worldTimeStep
+        let input = Input(
+            speed: -inputVector.y,
+            rotation: Rotation(sine: sin(rotation), cosine: cos(rotation))
+        )
+        
+        // Update world
         let worldSteps = (timeStep / worldTimeStep).rounded(.up)
         for _ in 0 ..< Int(worldSteps) {
             world.update(timeStep: timeStep / worldSteps, input: input)
@@ -85,8 +92,10 @@ class ViewController: UIViewController {
         lastFrameTime = displayLink.timestamp
         
         // Render world
-        let size = Int(min(imageView.bounds.width, imageView.bounds.height))
-        var renderer = Renderer(width: size, height: size)
+        var renderer = Renderer(
+            width: Int(imageView.bounds.width),
+            height: Int(imageView.bounds.height)
+        )
         renderer.draw(world)
         
         imageView.image = UIImage(bitmap: renderer.bitmap)

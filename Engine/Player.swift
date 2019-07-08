@@ -12,6 +12,7 @@ public struct Player {
     public var velocity: Vector
     public let speed: Double = 2
     public var direction: Vector
+    public let turningSpeed: Double = .pi/2
     
     public init(position: Vector) {
         self.position = position
