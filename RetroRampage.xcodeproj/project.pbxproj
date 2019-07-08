@@ -22,6 +22,11 @@
 		45184ACA22D29E7000B93A26 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AC922D29E7000B93A26 /* Player.swift */; };
 		45184ACC22D2A1FE00B93A26 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184ACB22D2A1FE00B93A26 /* World.swift */; };
 		45184ACE22D2A2B700B93A26 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184ACD22D2A2B700B93A26 /* Rect.swift */; };
+		45184AD822D3A19000B93A26 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AD722D3A19000B93A26 /* Tile.swift */; };
+		45184ADA22D3A1C300B93A26 /* Tilemap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AD922D3A1C300B93A26 /* Tilemap.swift */; };
+		45184ADD22D3A6D800B93A26 /* Map.json in Resources */ = {isa = PBXBuildFile; fileRef = 45184ADB22D3A62A00B93A26 /* Map.json */; };
+		45184ADF22D3DB2100B93A26 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184ADE22D3DB2100B93A26 /* Thing.swift */; };
+		45184AE122D3E43D00B93A26 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45184AE022D3E43D00B93A26 /* Input.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		45184AC922D29E7000B93A26 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		45184ACB22D2A1FE00B93A26 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		45184ACD22D2A2B700B93A26 /* Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
+		45184AD722D3A19000B93A26 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		45184AD922D3A1C300B93A26 /* Tilemap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tilemap.swift; sourceTree = "<group>"; };
+		45184ADB22D3A62A00B93A26 /* Map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Map.json; sourceTree = "<group>"; };
+		45184ADE22D3DB2100B93A26 /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
+		45184AE022D3E43D00B93A26 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,7 @@
 				45184AA222D28F2E00B93A26 /* Assets.xcassets */,
 				45184AA422D28F2E00B93A26 /* LaunchScreen.storyboard */,
 				45184AA722D28F2E00B93A26 /* Info.plist */,
+				45184ADB22D3A62A00B93A26 /* Map.json */,
 			);
 			path = RetroRampage;
 			sourceTree = "<group>";
@@ -124,9 +135,13 @@
 			children = (
 				45184AC122D2949B00B93A26 /* Bitmap.swift */,
 				45184ABF22D2919800B93A26 /* Color.swift */,
+				45184AE022D3E43D00B93A26 /* Input.swift */,
 				45184AC922D29E7000B93A26 /* Player.swift */,
 				45184ACD22D2A2B700B93A26 /* Rect.swift */,
 				45184AC522D299EB00B93A26 /* Renderer.swift */,
+				45184ADE22D3DB2100B93A26 /* Thing.swift */,
+				45184AD722D3A19000B93A26 /* Tile.swift */,
+				45184AD922D3A1C300B93A26 /* Tilemap.swift */,
 				45184AC722D29CC900B93A26 /* Vector.swift */,
 				45184ACB22D2A1FE00B93A26 /* World.swift */,
 				45184AB522D28F6B00B93A26 /* Info.plist */,
@@ -229,6 +244,7 @@
 			files = (
 				45184AA622D28F2E00B93A26 /* LaunchScreen.storyboard in Resources */,
 				45184AA322D28F2E00B93A26 /* Assets.xcassets in Resources */,
+				45184ADD22D3A6D800B93A26 /* Map.json in Resources */,
 				45184AA122D28F2A00B93A26 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,9 +276,13 @@
 				45184ACE22D2A2B700B93A26 /* Rect.swift in Sources */,
 				45184ACC22D2A1FE00B93A26 /* World.swift in Sources */,
 				45184AC222D2949B00B93A26 /* Bitmap.swift in Sources */,
+				45184AE122D3E43D00B93A26 /* Input.swift in Sources */,
+				45184AD822D3A19000B93A26 /* Tile.swift in Sources */,
 				45184AC622D299EB00B93A26 /* Renderer.swift in Sources */,
 				45184AC822D29CC900B93A26 /* Vector.swift in Sources */,
 				45184ACA22D29E7000B93A26 /* Player.swift in Sources */,
+				45184ADA22D3A1C300B93A26 /* Tilemap.swift in Sources */,
+				45184ADF22D3DB2100B93A26 /* Thing.swift in Sources */,
 				45184AC022D2919800B93A26 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

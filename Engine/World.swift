@@ -7,19 +7,38 @@
 //
 
 public struct World {
-    public let size: Vector
-    public var player: Player
+    public let map: Tilemap
+    public var player: Player!
     
-    public init() {
-        self.size = Vector(x: 8, y: 8)
-        self.player = Player(position: Vector(x: 4, y: 4))
+    public init(map: Tilemap) {
+        self.map = map
+        
+        // Add things
+        for y in 0 ..< map.height {
+            for x in 0 ..< map.width {
+                let position = Vector(x: Double(x) + 0.5, y: Double(y) + 0.5)
+                let thing = map.things[y * map.width + x]
+                switch thing {
+                case .player:
+                    self.player = Player(position: position)
+                default:
+                    break
+                }
+            }
+        }
     }
 }
 
 public extension World {
-    mutating func update(timeStep: Double) {
-        player.position += player.velocity * timeStep // Move at 1 FPS
-        player.position.x.formTruncatingRemainder(dividingBy: 8)
-        player.position.y.formTruncatingRemainder(dividingBy: 8)
+    var size: Vector {
+        return map.size
+    }
+    
+    mutating func update(timeStep: Double, input: Input) {
+        player.velocity = input.velocity * player.speed
+        player.position += player.velocity * timeStep
+        while let intersection = player.intersection(with: map) {
+            player.position -= intersection
+        }
     }
 }
