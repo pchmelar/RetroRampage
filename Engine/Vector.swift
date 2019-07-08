@@ -70,4 +70,8 @@ public extension Vector {
         // Pythagoras theorem
         return (x * x + y * y).squareRoot()
     }
+    
+    var orthogonal: Vector {
+        return Vector(x: -y, y: x)
+    }
 }
